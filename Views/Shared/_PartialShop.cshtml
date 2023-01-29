@@ -1,0 +1,20 @@
+﻿@model TbProduct
+
+
+
+<div class="col-sm-6 col-md-3 portfolio-item">
+    <a asp-action="AddToCart" asp-route-id="@Model.ProductId" class="portfolio-link">
+        <div class="portfolio-hover">
+            <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+        </div><img style="width:270px;height:200px" class="img-fluid" src="@string.Format("/Uploads/{0}",Model.ImageName)">
+    </a>
+    <div style="width:270px;height:200px" class="portfolio-caption">
+        <h4>@Model.ProductName</h4>
+        <p class="text-muted">@Model.Category.CategoryName</p>
+        <p class="text-muted">@Model.ProductSalePrice</p>
+    </div>
+</div>
+
+
+
+

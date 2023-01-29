@@ -1,0 +1,85 @@
+﻿@model ShopingCart
+
+@section styles{
+    <link rel="stylesheet" href="~/assets/css/Application-Form.css">
+    <link rel="stylesheet" href="~/assets/css/Bootstrap-4---Payment-Form.css">
+    <link rel="stylesheet" href="~/assets/css/Bootstrap-Payment-Form-.css">
+    <link rel="stylesheet" href="~/assets/css/CCS-RecordForm.css">
+    <link rel="stylesheet" href="~/assets/css/Multi-step-form.css">
+}
+@if (Model == null)
+{
+    <section class="bg-light">
+        <h1>Empty Cart</h1>
+    </section>
+}
+else
+{
+    <section class="bg-light">
+        <div class="content">
+            <div class="row g-0">
+                <div class="col-md-12 col-lg-8">
+                    <div class="items">
+                        @foreach (var item in Model.lstItem)
+                        {
+                            <form method="post" role="form">
+                                <div class="product">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-md-3">
+                                            <div class="product-image"><img class="img-fluid d-block mx-auto image" src="@string.Format("/Uploads/{0}",item.ImageName)"></div>
+                                        </div>
+                                        <div class="col-md-5 product-info">
+                                            <p class="product-name">@item.ProductName</p>
+                                            <div class="product-specs">
+                                                <div><span>Price:&nbsp;</span><span class="value">@item.Price</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-2 quantity">
+                                            <label class="form-label d-none d-md-block">Quantity</label>
+                                            <input type="number" id="number-1" onkeyup="ChangeQty(this)" data-price="@item.Price" class="form-control quantity-input cartInput" value="@item.Qty">
+                                            <input type="submit" asp-controller="OrderController1" asp-action="RemoveItem" asp-route-id="@item.ProductId" value="X">
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="w-100"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <div class="summary">
+                        <h3>Total</h3>
+                        @* <h4><span class="text"></span><span id="total1" class="@Model.Total"></span></h4>*@
+                        @*<h4><span class="text">Discount</span><span class="price"></span></h4>*@
+                        <br>
+                        <h4></h4>
+                        <h4><span class="text">Total  </span><span id="total1" class="price">@Model.Total</span></h4><a class="btn btn-primary btn-lg d-block w-100" asp-action="CheckOut" asp-controller="Home">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@section scripts{
+    <script src="~/assets/js/Application-Form-1.js"></script>
+    <script src="~/assets/js/Application-Form.js"></script>
+    <script src="~/assets/js/Bootstrap-4---Payment-Form.js"></script>
+    <script src="~/assets/js/Multi-step-form.js"></script>
+    <script>
+        function ChangeQty(input) {
+            let price = parseFloat($(input).data("price"));
+            $(input).html(price * parseFloat($(input).val()));
+            UpdateTotals();
+        }
+        function UpdateTotals() {
+            let total = 0;
+            $(".cartInput").each(function (index, element) {
+                total = total + parseFloat($(element).val()) * parseFloat($(element).data("price"));
+            });
+            $("#total1").html(total);
+
+        }
+    </script>
+    }

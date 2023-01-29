@@ -1,0 +1,172 @@
+﻿@model List<TbProduct>
+<header class="masthead" style="background-image:url('/assets/img/header-bg.jpg');">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in"><span>Welcome To Our Store!</span></div>
+            <div class="intro-heading text-uppercase"><span>It's Nice To Meet You</span></div><a class="btn btn-primary btn-xl text-uppercase" role="button" asp-action="Shop">Shopping Time</a>
+        </div>
+    </div>
+</header>
+<section class="bg-light" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Shop</h2>
+                <h3 class="text-muted section-subheading">Welcome to Our Shop</h3>
+            </div>
+        </div>
+        <div class="row">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                if (i > 7)
+                    break;
+                else
+                {
+                    <partial name="_PartialShop" model="Model[i]" />
+                }
+            }
+        </div>
+        <div>
+            <a class="btn btn-primary btn-xl text-uppercase" style="margin-left:44%" role="button" asp-action="Shop">More</a>
+        </div>
+    </div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase">About</h2>
+                <h3 class="text-muted section-subheading">We are team we sell a furnture Products</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-group timeline">
+                    <li class="list-group-item">
+                        <div class="timeline-image">
+                            <img style="height: 100%;width: inherit;" class="rounded-circle img-fluid" src="~/assets/img/38.jpg">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">First Member of team</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">team leader and manage the site</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="~/assets/img/about/2.jpg"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Second Member of team</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Profissenal in markting spcially Elctronic Markting</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="~/assets/img/about/3.jpg"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Third Member of team</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Profissenal in Desgin art</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="~/assets/img/about/4.jpg"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Fourth Member of team</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Profissenal in Manage the Clients</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>Be Part<br>&nbsp;Of Our<br>&nbsp;Story!</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-light" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img class="rounded-circle mx-auto" src="~/assets/img/team/1.jpg">
+                    <h4>Kay Garland</h4>
+                    <p class="text-muted">Lead Designer</p>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item"><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img class="rounded-circle mx-auto" src="~/assets/img/38.jpg">
+                    <h4>Mohammed Abd-Elmaksod</h4>
+                    <p class="text-muted">Manager of Project</p>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item"><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img class="rounded-circle mx-auto" src="~/assets/img/team/3.jpg">
+                    <h4>Diana Pertersen</h4>
+                    <p class="text-muted">Lead Developer</p>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item"><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<section id="contact" style="background-image:url('assets/img/map-image.png');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Contact Us</h2>
+                <h3 class="text-muted section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="contactForm" name="contactForm" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
+                            <div class="form-group mb-3"><input class="form-control" type="email" id="email" placeholder="Your Email *" required=""><small class="form-text text-danger help-block lead"></small></div>
+                            <div class="form-group mb-3"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger help-block lead"></small></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger help-block lead"></small></div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>*@
